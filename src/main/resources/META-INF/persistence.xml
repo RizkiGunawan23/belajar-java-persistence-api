@@ -1,0 +1,47 @@
+<persistence
+    xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+        http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+    version="2.1">
+
+    <persistence-unit name="BELAJAR">
+
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <class>rizkigunawan.jpa.entity.Brand</class>
+        <class>rizkigunawan.jpa.entity.Category</class>
+        <class>rizkigunawan.jpa.entity.Credential</class>
+        <class>rizkigunawan.jpa.entity.Customer</class>
+        <class>rizkigunawan.jpa.entity.Department</class>
+        <class>rizkigunawan.jpa.entity.Employee</class>
+        <class>rizkigunawan.jpa.entity.Hobby</class>
+        <class>rizkigunawan.jpa.entity.Image</class>
+        <class>rizkigunawan.jpa.entity.Manager</class>
+        <class>rizkigunawan.jpa.entity.Member</class>
+        <class>rizkigunawan.jpa.entity.Payment</class>
+        <class>rizkigunawan.jpa.entity.PaymentCreditCard</class>
+        <class>rizkigunawan.jpa.entity.PaymentGopay</class>
+        <class>rizkigunawan.jpa.entity.Product</class>
+        <class>rizkigunawan.jpa.entity.Skill</class>
+        <class>rizkigunawan.jpa.entity.Transaction</class>
+        <class>rizkigunawan.jpa.entity.TransactionCredit</class>
+        <class>rizkigunawan.jpa.entity.TransactionDebit</class>
+        <class>rizkigunawan.jpa.entity.User</class>
+        <class>rizkigunawan.jpa.entity.VicePresident</class>
+        <class>rizkigunawan.jpa.entity.Wallet</class>
+
+        <properties>
+
+            <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver" />
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/belajar_java_persistence_api" />
+            <property name="jakarta.persistence.jdbc.user" value="postgres" />
+            <property name="jakarta.persistence.jdbc.password" value="postgres" />
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.format_sql" value="true" />
+
+        </properties>
+        
+    </persistence-unit>
+
+</persistence>

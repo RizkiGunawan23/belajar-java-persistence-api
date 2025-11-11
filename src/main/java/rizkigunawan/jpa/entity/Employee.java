@@ -1,0 +1,38 @@
+package rizkigunawan.jpa.entity;
+
+import jakarta.persistence.DiscriminatorColumn;
+import jakarta.persistence.DiscriminatorValue;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
+
+@Entity
+@Table(name = "employees")
+// Parent class perlu ada anotasi ini agar nanti ada column pembeda di tabel.
+@DiscriminatorColumn(name = "type")
+// Parent dan child class perlu ada anotasi ini untuk memberi nilai secara otomatis pada column pembeda.
+@DiscriminatorValue("EMPLOYEE")
+// Menentukan strategi inheritance, disini menggunakan Single Table Inheritance.
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+// Mengguanakan SuperBuilder daripada builder agar bisa digunakan di class turunannya.
+@SuperBuilder
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+public class Employee {
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private String id;
+
+    private String name;
+
+}
