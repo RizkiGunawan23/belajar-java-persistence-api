@@ -177,13 +177,13 @@ public class EntityRelationshipTest {
 
         Assertions.assertNotNull(user);
 
-        String product1Id = "c6938d0d-4ed9-4cf3-8928-74c0f54ceb84";
+        String product1Id = "72fde8ed-b997-4a3e-a282-82ae3228fff5";
 
         Product product1 = entityManager.find(Product.class, product1Id);
 
         Assertions.assertNotNull(product1);
 
-        String product2Id = "96135545-1949-4faf-a155-d50ca56c3152";
+        String product2Id = "47187406-69f3-4b41-a995-f53e7c484973";
 
         Product product2 = entityManager.find(Product.class, product2Id);
 

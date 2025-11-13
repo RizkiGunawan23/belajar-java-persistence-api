@@ -8,6 +8,8 @@ import org.junit.jupiter.api.Test;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
+import rizkigunawan.jpa.entity.Brand;
+import rizkigunawan.jpa.entity.Category;
 import rizkigunawan.jpa.entity.Employee;
 import rizkigunawan.jpa.entity.Manager;
 import rizkigunawan.jpa.entity.PaymentCreditCard;
@@ -145,6 +147,51 @@ public class InheritanceTest {
             .debitAmount(1_000_000L)
             .build();
         entityManager.persist(transactionDebit);
+
+        transactionManager.commit();
+
+        entityManager.close();
+        entityManagerFactory.close();
+    }
+
+    @Test
+    void mappedSuperclass() {
+        EntityManagerFactory entityManagerFactory = JpaUtil.getEntityManagerFactory();
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityTransaction transactionManager = entityManager.getTransaction();
+
+        transactionManager.begin();
+
+        Brand brand = Brand.builder()
+            .name("Brand A")
+            .description("Brand A description")
+            .build();
+        entityManager.persist(brand);
+
+        transactionManager.commit();
+
+        entityManager.close();
+        entityManagerFactory.close();
+    }
+
+    @Test
+    void mappedSuperclassWithAuditableEntity() {
+        EntityManagerFactory entityManagerFactory = JpaUtil.getEntityManagerFactory();
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityTransaction transactionManager = entityManager.getTransaction();
+
+        transactionManager.begin();
+
+        // Manager manager = Manager.builder()
+        //     .name("Manager A")
+        //     .totalEmployee(25)
+        //     .build();
+        // entityManager.persist(manager);
+        Category category = Category.builder()
+            .name("Category A")
+            .description("Category A description")
+            .build();
+        entityManager.persist(category);
 
         transactionManager.commit();
 
